@@ -12,8 +12,8 @@ $(document).ready (function() {
     function updateSchedule () {
     var getSchedule = JSON.parse(localStorage.getItem("schedule"));
     
-    if(!schedule) {
-        schedule={};
+    if(!getSchedule) {
+        getSchedule={};
     } ;
 
     //for statment to apply it to the correct area on the webpage//
