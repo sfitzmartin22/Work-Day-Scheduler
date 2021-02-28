@@ -1,12 +1,10 @@
+//Reload page //
+$(document).ready (function() {
+
 // define array that the objects will be defined within //
 var schedule = [];
 // set date at top of the page //
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
-
-
-//Reload page //
-$(document).ready (function() {
-
 
     // get local storage parse it //
     function updateSchedule () {
