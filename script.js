@@ -52,7 +52,7 @@ var hourAudit =function(){
     }
 }
 
-
+// removes past/present/future class for task area so that i can then apply the correct class when i run my hour audit function //
 var clearClass = function (){
     var currentHour = moment().hour()
     for(var i=8; i<18; i++){
@@ -69,6 +69,18 @@ var clearClass = function (){
     }
 }
 
+hourAudit ();
+
+// function that removes and add correct class based on the time //
+var updateBackground = function (){
+    clearClass();
+    hourAudit();
+}
+
+// updates the ackground color every second //
+setInterval (function() {
+    updateBackground();
+}, 1 * 1000);
 
 })
     
