@@ -12,6 +12,10 @@ $(document).ready (function() {
     function updateSchedule () {
     var getSchedule = JSON.parse(localStorage.getItem("schedule"));
     
+    if(!schedule) {
+        schedule={};
+    } ;
+
     //for statment to apply it to the correct area on the webpage//
     for(var i = 0; i < getSchedule.length; i++) {
         var userInput = getSchedule[i].description;
