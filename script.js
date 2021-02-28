@@ -37,6 +37,7 @@ $(".saveBtn").on("click", function() {
 }
 );
 
+// loops through the time blocks to apply the correct class based on the time //
 var hourAudit =function(){
     var currentHour = moment().hour() 
     for(var i=8; i<18; i++){
@@ -51,7 +52,23 @@ var hourAudit =function(){
     }
 }
 
-hourAudit();
+
+var clearClass = function (){
+    var currentHour = moment().hour()
+    for(var i=8; i<18; i++){
+        var taskArea = $("#hour-"+i)
+        if ($(taskArea).hasClass("past")){
+            $(taskArea).removeClass("past");
+        }
+        if ($(taskArea).hasClass("present")){
+            $(taskArea).removeClass("present");
+        }
+        if ($(taskArea).hasClass("future")){
+            $(taskArea).removeClass("future");
+        }
+    }
+}
+
 
 })
     
