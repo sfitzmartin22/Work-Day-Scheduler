@@ -2,13 +2,13 @@
 $(document).ready (function() {
 
 // define array that the objects will be defined within //
-var schedule = [];
+var schedule  = [];
 // set date at top of the page //
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
     // get local storage parse it //
     function updateSchedule () {
-    var getSchedule = JSON.parse(localStorage.getItem("schedule"));
+    var getSchedule = JSON.parse(localStorage.getItem("schedule")) || [];
     
     if(!getSchedule) {
         getSchedule={};
@@ -25,15 +25,19 @@ $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
 // when clicking a save button i run through the local div to find time and schedule details //
 $(".saveBtn").on("click", function() {
-
+    var schedule = JSON.parse(localStorage.getItem("schedule")) || [];
     var description = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
 
+    var scheduleO = {
+        description,
+        time
+    };
     // push into schedule //
-    schedule.push({description: description, time: time});
+    schedule.push(scheduleO);
    
     // store objects in local storage //
-    localStorage.setItem("schedule",JSON.stringify(schedule));
+    localStorage.setItem("schedule", JSON.stringify(schedule));
 
     
 }
